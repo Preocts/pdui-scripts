@@ -1,8 +1,8 @@
 // ==UserScript==
-// @name         noteform-on-top
+// @name         notewidget-on-top
 // @namespace    https://github.com/Preocts
 // @version      0.1
-// @description  Flip the note box on PagerDuty to the top of the list of current notes
+// @description  Flip the note widget on PagerDuty incident page to be above the Responders widget
 // @author       Preocts
 // @match        https://*.pagerduty.com/incidents/*
 // @icon         https://www.google.com/s2/favicons?sz=64&domain=pagerduty.com
@@ -10,26 +10,26 @@
 // ==/UserScript==
 
 const urlMatch = /https:\/\/.*\.pagerduty\.com\/incidents\/.+/;
-const elementName = 'Note form';
+const elementId = 'notesWidget';
 
 (function () {
   'use strict';
   if (!urlMatch.test(window.location.href)) {
-    console.log('[noteform-on-top] Not on an incident page');
+    console.log('[notewidget-on-top] Not on an incident page');
     return;
   }
 
   new MutationObserver((_, observer) => {
-    const noteForm = document.getElementsByName(elementName);
-    if (!noteForm || noteForm.length === 0) {
-      console.log('[noteform-on-top] Note form not found')
+    const noteWidget = document.getElementById(elementId);
+    if (!noteWidget) {
+      console.log('[notewidget-on-top] noteWidget element not found')
       return;
     }
-    const noteWidget = noteForm[0].parentNode;
+    const sideColumn = noteWidget.parentNode;
     // If the widget is not the first child, move it to the top
-    if (noteWidget && noteForm[0].previousElementSibling) {
-      console.log('[noteform-on-top] Moving note form to top of widget');
-      noteWidget.insertBefore(noteForm[0], noteWidget.firstChild);
+    if (sideColumn && noteWidget.previousElementSibling) {
+      console.log('[notewidget-on-top] Moving noteWidget to top of sidebar');
+      sideColumn.insertBefore(noteWidget, sideColumn.firstChild);
       observer.disconnect();
     };
   }).observe(document.body, { childList: true, subtree: true });
