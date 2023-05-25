@@ -29,7 +29,7 @@ const elementName = 'Note form';
     // If the widget is not the first child, move it to the top
     if (noteWidget && noteForm[0].previousElementSibling) {
       console.debug('[noteform-on-top] Moving note form to top of widget');
-      noteWidget.insertBefore(noteForm[0], noteWidget.firstChild);
+      noteWidget.insertBefore(noteForm[0], noteWidget.previousElementSibling);
       observer.disconnect();
     };
   }).observe(document.body, { childList: true, subtree: true });
