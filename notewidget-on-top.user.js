@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         notewidget-on-top
 // @namespace    https://github.com/Preocts
-// @version      0.1
+// @version      0.2
 // @description  Flip the note widget on PagerDuty incident page to be above the Responders widget
 // @author       Preocts
 // @match        https://*.pagerduty.com/incidents/*

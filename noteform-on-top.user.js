@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         noteform-on-top
 // @namespace    https://github.com/Preocts
-// @version      0.1
+// @version      0.2
 // @description  Flip the note box on PagerDuty to the top of the list of current notes
 // @author       Preocts
 // @match        https://*.pagerduty.com/incidents/*
