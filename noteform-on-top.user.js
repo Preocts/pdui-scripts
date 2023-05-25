@@ -15,20 +15,20 @@ const elementName = 'Note form';
 (function () {
   'use strict';
   if (!urlMatch.test(window.location.href)) {
-    console.log('[noteform-on-top] Not on an incident page');
+    console.debug('[noteform-on-top] Not on an incident page');
     return;
   }
 
   new MutationObserver((_, observer) => {
     const noteForm = document.getElementsByName(elementName);
     if (!noteForm || noteForm.length === 0) {
-      console.log('[noteform-on-top] Note form not found')
+      console.debug('[noteform-on-top] Note form not found')
       return;
     }
     const noteWidget = noteForm[0].parentNode;
     // If the widget is not the first child, move it to the top
     if (noteWidget && noteForm[0].previousElementSibling) {
-      console.log('[noteform-on-top] Moving note form to top of widget');
+      console.debug('[noteform-on-top] Moving note form to top of widget');
       noteWidget.insertBefore(noteForm[0], noteWidget.firstChild);
       observer.disconnect();
     };

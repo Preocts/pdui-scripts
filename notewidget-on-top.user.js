@@ -15,20 +15,20 @@ const elementId = 'notesWidget';
 (function () {
   'use strict';
   if (!urlMatch.test(window.location.href)) {
-    console.log('[notewidget-on-top] Not on an incident page');
+    console.debug('[notewidget-on-top] Not on an incident page');
     return;
   }
 
   new MutationObserver((_, observer) => {
     const noteWidget = document.getElementById(elementId);
     if (!noteWidget) {
-      console.log('[notewidget-on-top] noteWidget element not found')
+      console.debug('[notewidget-on-top] noteWidget element not found')
       return;
     }
     const sideColumn = noteWidget.parentNode;
     // If the widget is not the first child, move it to the top
     if (sideColumn && noteWidget.previousElementSibling) {
-      console.log('[notewidget-on-top] Moving noteWidget to top of sidebar');
+      console.debug('[notewidget-on-top] Moving noteWidget to top of sidebar');
       sideColumn.insertBefore(noteWidget, sideColumn.firstChild);
       observer.disconnect();
     };
