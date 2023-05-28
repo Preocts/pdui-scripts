@@ -5,6 +5,9 @@ functional user experience.
 
 ## Requirements:
 
+These scripts require a browser extension to manage. They are designed for
+Chrome or Firefox.
+
 - google chrome uses
   [tampermonkey](https://chrome.google.com/webstore/detail/tampermonkey/dhdgffkkebhmkfjojejmpbldmpobfkfo?hl=en)
 - firefox uses
@@ -47,5 +50,10 @@ here](https://github.com/Preocts/pdui-scripts/raw/main/notewidget-on-top.user.js
 ### After notewidget-on-top.user.js
 
 ![example03.png](images/example03.png)
+
+
+### With colaspable-widgets.user.js
+
+![example04.gif](images/example04.gif)
 
 ---
