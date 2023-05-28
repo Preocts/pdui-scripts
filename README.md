@@ -62,7 +62,7 @@ here](https://github.com/Preocts/pdui-scripts/raw/main/collaspable-widgets.user.
 ![example03.png](images/example03.png)
 
 
-### With colaspable-widgets.user.js
+### With collaspable-widgets.user.js
 
 ![example04.gif](images/example04.gif)
 
