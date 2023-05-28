@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         collaspable-widgets
 // @namespace    https://github.com/Preocts
-// @version      0.2
+// @version      0.3
 // @description  Gives all right-hand widgets a collapse/expand button. Default view is expanded.
 // @author       Preocts
 // @match        https://*.pagerduty.com/incidents/*
@@ -20,7 +20,7 @@ function toggleWidgetDisplay(target) {
 
   // Do not hide the first child, it is the label
   for (let i = 1; i < children.length; i++) {
-    children[i].style.display = isHidden ? 'block' : 'none';
+    children[i].style.display = isHidden ? null : 'none';
   }
 
   // Toggle the label text
