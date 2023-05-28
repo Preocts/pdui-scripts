@@ -9,6 +9,11 @@
 // @grant        none
 // ==/UserScript==
 
+const allowedLabels = [
+  'Responders',
+  'Notes',
+];
+
 function toggleWidgetDisplay(target) {
   const children = target.children;
   const isHidden = children[1].style.display === 'none';
@@ -27,24 +32,20 @@ function toggleWidgetDisplay(target) {
 
 function addStyle(target) {
   // Adds pointer style and label text to the taget widget
-  // NOTE: Assumes the first child is the label
+  // NOTE: Requires the first child to be the label and the label text is in the allowedLabels array
   const label = target.firstElementChild;
-  if (!label) {
-    console.debug('[collasp-responders-widget] No label found');
-    return;
+  if (!label || !allowedLabels.includes(label.innerText)) {
+    return false;
   }
   label.style.cursor = 'pointer';
   label.innerText = '▼ ' + label.innerText + ' (click to collapse)';
+  return true;
 }
 
 function addOnClick(target) {
   // Adds onClick to the target widget's label
   // NOTE: Assumes the first child is the label
   const label = target.firstElementChild;
-  if (!label) {
-    console.debug('[collasp-responders-widget] No label found');
-    return;
-  }
   label.addEventListener('click', () => {
     toggleWidgetDisplay(target);
   });
@@ -76,8 +77,9 @@ function addOnClick(target) {
 
     // Update the sytle of each widget and add onClick
     for (let idx = 0; idx < columnChildren.length; idx++) {
-      addStyle(columnChildren[idx]);
-      addOnClick(columnChildren[idx]);
+      if (addStyle(columnChildren[idx])) {
+        addOnClick(columnChildren[idx]);
+      }
     };
 
     observer.disconnect();
