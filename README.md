@@ -37,6 +37,16 @@ to action while maintaining awareness of status, title, and action buttons.
 [Install by clicking
 here](https://github.com/Preocts/pdui-scripts/raw/main/notewidget-on-top.user.js)
 
+## collaspable-widgets.user.js
+
+Move the widgets out of the way with a click of their label! This allows you to
+collaspe both the Notes widget and the Responders widget. Paired with
+`noteform-on-top.user.js` and `notewidget-on-top.user.js` this keeps everything
+flowing during an incident.
+
+ [Install by clicking
+here](https://github.com/Preocts/pdui-scripts/raw/main/collaspable-widgets.user.js)
+
 ---
 
 ### Before plugins:
